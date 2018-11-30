@@ -16,7 +16,6 @@ Plugin 'othree/html5.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'css_color'
 
-
 "COMPLETION
 Plugin 'https://github.com/Valloric/YouCompleteMe'
 
@@ -44,6 +43,30 @@ Plugin 'scrooloose/nerdtree'
 "LINTING
 Plugin 'scrooloose/syntastic'
 
+"PEP8
+Plugin 'https://github.com/nvie/vim-flake8'
+
+"Surround
+Plugin 'https://github.com/tpope/vim-surround'
+
+"Undo tree facilities
+Plugin 'http://github.com/sjl/gundo.vim.git'
+
+"HarshiCorp
+Plugin 'https://github.com/hashivim/vim-hashicorp-tools.git'
+
+"IndentLine
+"Plugin 'Yggdroot/indentLine'
+
+"React Syntax
+Plugin 'mxw/vim-jsx'
+
+"Vue Syntax
+Plugin 'posva/vim-vue'
+
+"Go plugin
+Plugin 'fatih/vim-go'
+
 call vundle#end()            " required
 " enable filetypes
 filetype plugin indent on     " required!
@@ -57,6 +80,7 @@ set t_Co=256
 
 "UTF-8
 set encoding=utf-8
+set fileencoding=utf-8
 
 "Presentation
 colorscheme delek
@@ -96,13 +120,15 @@ set laststatus=2
 
 " Activate vim completion(piped with youcomplete)
 set omnifunc=syntaxcomplete#Complete
-
-
 command! W w !sudo tee % > /dev/null
 command! Fixpython :!autopep8 --in-place --aggressive %
 command! Fixjs :!fixjsstyle %
 command! FormatJSON %!python -m json.tool
 cmap tb tabnew<space>
+
+if &diff
+    colorscheme molokai
+endif
 
 " =========================================
 "           HOTKEYS
@@ -168,7 +194,6 @@ if has("autocmd")
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 
     "check syntax JS on save (no max line chars)
-    autocmd BufWritePost *.js :!gjslint --disable 110 %
     autocmd BufWinEnter *.js set foldmethod=indent
 
     " Remove trailing whitespaces and ^M chars
@@ -274,3 +299,6 @@ autocmd TabEnter * NERDTreeClose
 " NERDCOMMENT
 map <silent><leader>c :call NERDComment(0, "toggle")<CR>
 command! -nargs=? -range=% C :normal <line1>ggv<line2>gg<Leader>c<space>
+
+" Gundo
+nnoremap <F5> :GundoToggle<CR>
