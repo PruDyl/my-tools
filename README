@@ -1,14 +1,11 @@
-My configs and tools
+# My configs and tools
 
-# Installation
+## Installation
 
-Just clone repo on root directorie
+Clone repository on your home
 
-Call deploy.sh, he create symlink to the repo
+Call deploy.sh, he create symlink to the every tools in the repository
 
-## Vim (hotkey, snippets, ...)
-## Git
-## Aliases for symfony
-## Xmonad tailer manager
-## 
-toto
+* Vim (hotkey, snippets, ...)
+* Git
+* oh-my-zsh
