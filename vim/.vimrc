@@ -8,19 +8,12 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 "SYNTAX
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'https://github.com/othree/javascript-libraries-syntax.vim'
-Plugin 'othree/html5.vim'
-Plugin 'groenewege/vim-less'
 Plugin 'css_color'
+Plugin 'sheerun/vim-polyglot'
 
 "COMPLETION
 Plugin 'https://github.com/Valloric/YouCompleteMe'
 
-"Server for autocomplete JS
-Plugin 'ternjs/tern_for_vim'
 "Auto bracket etc
 Plugin 'Raimondi/delimitMate'
 " emmet is an html complex completion
@@ -56,16 +49,7 @@ Plugin 'http://github.com/sjl/gundo.vim.git'
 Plugin 'https://github.com/hashivim/vim-hashicorp-tools.git'
 
 "IndentLine
-"Plugin 'Yggdroot/indentLine'
-
-"React Syntax
-Plugin 'mxw/vim-jsx'
-
-"Vue Syntax
-Plugin 'posva/vim-vue'
-
-"Go plugin
-Plugin 'fatih/vim-go'
+Plugin 'Yggdroot/indentLine'
 
 call vundle#end()            " required
 " enable filetypes
@@ -248,13 +232,6 @@ let g:airline_left_sep = '>'
 let g:airline_right_sep = '<'
 let g:airline_detect_modified=1
 
-"TERN
-"enable keyboard shortcuts
-"let g:tern_map_keys=1
-""show argument hints
-"let g:tern_show_argument_hints='on_hold'
-let g:used_javascript_libs = 'underscore,angularjs,jasmine,chai'
-
 "CTRLP
 let g:ctrlp_map = '<c-f>'
 let g:ctrlp_cmd = 'CtrlPMixed'
@@ -302,3 +279,6 @@ command! -nargs=? -range=% C :normal <line1>ggv<line2>gg<Leader>c<space>
 
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
+
+"indentLine
+let g:indentLine_char = '▏'
